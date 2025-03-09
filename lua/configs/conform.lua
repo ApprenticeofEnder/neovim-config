@@ -1,12 +1,13 @@
 local options = {
   formatters_by_ft = {
-    lua = { "stylua" },
     css = { "prettier" },
     html = { "prettier" },
-    typst = { "prettypst" },
+    lua = { "stylua" },
+    markdown = { "prettier" },
     python = { "ruff_fix", "ruff_format" },
     terraform = { "tflint" },
-    markdown = { "prettier" },
+    typst = { "prettypst" },
+    yaml = { "prettier" },
   },
   formatters = {
     prettypst = {

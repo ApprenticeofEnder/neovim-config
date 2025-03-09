@@ -4,7 +4,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "gopls", "ruff", "pyright", "marksman", "dockerls" }
+local servers = { "html", "cssls", "gopls", "ruff", "pyright", "marksman", "dockerls", "taplo" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -29,6 +29,21 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     vim.lsp.buf.format()
   end,
 })
+
+lspconfig.pyright.setup {
+  settings = {
+    pyright = {
+      -- Using Ruff's import organizer
+      disableOrganizeImports = true,
+    },
+    python = {
+      analysis = {
+        -- Ignore all files for analysis to exclusively use Ruff for linting
+        ignore = { "*" },
+      },
+    },
+  },
+}
 
 -- configuring single server, example: typescript
 -- lspconfig.ts_ls.setup {

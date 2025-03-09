@@ -9,9 +9,9 @@ M.base46 = {
   theme = "nord",
 
   hl_override = {
-    ["@comment.todo"] = { fg = "nord_blue", bg = "NONE" },
     Comment = { italic = true },
     ["@comment"] = { italic = true },
+    ["@comment.todo"] = { italic = false, fg = "nord_blue", bg = "NONE" },
   },
 }
 

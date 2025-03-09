@@ -28,13 +28,9 @@ require("lazy").setup({
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
+
 require "options"
 require "nvchad.autocmds"
-
--- vim.api.nvim_create_autocmd("Filetype", {
---   pattern = "markdown",
---   command = "TSContextDisable",
--- })
 
 vim.schedule(function()
   require "mappings"
