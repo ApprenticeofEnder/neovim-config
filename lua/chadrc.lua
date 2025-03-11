@@ -11,7 +11,7 @@ M.base46 = {
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
-    ["@comment.todo"] = { italic = false, fg = "nord_blue", bg = "NONE" },
+    ["@comment.todo"] = { italic = false, fg = "orange", bg = "NONE" },
   },
 }
 

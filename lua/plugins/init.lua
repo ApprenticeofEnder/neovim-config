@@ -32,6 +32,7 @@ return {
         "comment",
         "markdown",
         "markdown_inline",
+        "yaml",
       },
     },
   },

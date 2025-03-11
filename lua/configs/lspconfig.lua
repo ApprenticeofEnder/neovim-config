@@ -4,7 +4,20 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "gopls", "ruff", "pyright", "marksman", "dockerls", "taplo" }
+local servers = {
+  "html",
+  "cssls",
+  "gopls",
+  "ruff",
+  "pyright",
+  "marksman",
+  "dockerls",
+  "taplo",
+  "ansiblels",
+  "tinymist",
+  "terraformls",
+  "yamlls",
+}
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -22,7 +35,6 @@ lspconfig.tinymist.setup {
   end,
 }
 
-lspconfig.terraformls.setup {}
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.tf", "*.tfvars" },
   callback = function()
