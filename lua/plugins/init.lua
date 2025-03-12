@@ -33,6 +33,8 @@ return {
         "markdown",
         "markdown_inline",
         "yaml",
+        "svelte",
+        "typescript",
       },
     },
   },

@@ -17,6 +17,8 @@ local servers = {
   "tinymist",
   "terraformls",
   "yamlls",
+  "svelte",
+  "ts_ls",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 
