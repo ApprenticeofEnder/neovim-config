@@ -10,6 +10,9 @@ local options = {
     yaml = { "prettier" },
     c = { "clangd-format" },
   },
+  linters_by_ft = {
+    make = { "checkmake" },
+  },
   formatters = {
     prettypst = {
       command = "prettypst",
