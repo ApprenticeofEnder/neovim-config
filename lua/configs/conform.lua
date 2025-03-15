@@ -8,6 +8,7 @@ local options = {
     terraform = { "tflint" },
     typst = { "prettypst" },
     yaml = { "prettier" },
+    c = { "clangd-format" },
   },
   formatters = {
     prettypst = {
