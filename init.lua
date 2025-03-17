@@ -35,3 +35,7 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+-- custom settings
+
+require("nvchad.term").new { pos = "sp", size = 0.3 }
