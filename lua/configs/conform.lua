@@ -5,10 +5,11 @@ local options = {
     lua = { "stylua" },
     markdown = { "prettier" },
     python = { "ruff_fix", "ruff_format" },
-    terraform = { "tflint" },
     typst = { "prettypst" },
     yaml = { "prettier" },
     c = { "clangd-format" },
+    sql = { "sql_formatter" },
+    ["*"] = { "injected" },
   },
   linters_by_ft = {
     make = { "checkmake" },
@@ -21,7 +22,7 @@ local options = {
   },
   format_on_save = {
     -- These options will be passed to conform.format()
-    timeout_ms = 500,
+    timeout_ms = 10000,
     lsp_fallback = true,
   },
 }

@@ -20,6 +20,7 @@ local servers = {
   "svelte",
   "ts_ls",
   "clangd",
+  "sqlls",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 

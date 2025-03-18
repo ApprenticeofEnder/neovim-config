@@ -39,3 +39,4 @@ end)
 -- custom settings
 
 require("nvchad.term").new { pos = "sp", size = 0.3 }
+vim.api.nvim_input "<ESC>" -- This gets back into normal mode
