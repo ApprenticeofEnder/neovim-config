@@ -21,6 +21,7 @@ local servers = {
   "ts_ls",
   "clangd",
   "sqlls",
+  "rust_analyzer",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 

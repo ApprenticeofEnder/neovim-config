@@ -9,6 +9,7 @@ local options = {
     yaml = { "prettier" },
     c = { "clangd-format" },
     sql = { "sql_formatter" },
+    rust = { "rustfmt" },
     ["*"] = { "injected" },
   },
   linters_by_ft = {
