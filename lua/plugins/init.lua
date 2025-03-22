@@ -35,6 +35,7 @@ return {
         "yaml",
         "svelte",
         "typescript",
+        "hcl",
       },
     },
   },

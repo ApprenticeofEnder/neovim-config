@@ -15,7 +15,6 @@ local servers = {
   "taplo",
   "ansiblels",
   "tinymist",
-  "terraformls",
   "yamlls",
   "svelte",
   "ts_ls",
@@ -34,18 +33,22 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.terraformls.setup {}
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*.tf", "*.tfvars" },
+  callback = function()
+    vim.lsp.buf.format {
+      async = false,
+    }
+  end,
+})
+lspconfig.tflint.setup {}
+
 lspconfig.tinymist.setup {
   root_dir = function(filename, bufnr)
     return vim.fn.getcwd()
   end,
 }
-
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*.tf", "*.tfvars" },
-  callback = function()
-    vim.lsp.buf.format()
-  end,
-})
 
 lspconfig.pyright.setup {
   settings = {

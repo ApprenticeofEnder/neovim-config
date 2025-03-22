@@ -37,7 +37,16 @@ vim.schedule(function()
 end)
 
 -- custom settings
+-- ===============
 
+vim.cmd [[silent! autocmd! filetypedetect BufRead,BufNewFile *.tf]]
+vim.cmd [[autocmd BufRead,BufNewFile *.hcl set filetype=hcl]]
+vim.cmd [[autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl]]
+vim.cmd [[autocmd BufRead,BufNewFile *.tf,*.tfvars,*.tofu set filetype=terraform]]
+vim.cmd [[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json]]
+
+-- relative line numbers
 vim.wo.relativenumber = true
+-- opening a terminal
 require("nvchad.term").new { pos = "sp", size = 0.3 }
 vim.api.nvim_input "<ESC>" -- This gets back into normal mode
