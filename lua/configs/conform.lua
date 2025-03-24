@@ -5,6 +5,7 @@ local options = {
     lua = { "stylua" },
     markdown = { "prettier" },
     python = { "ruff_fix", "ruff_format" },
+    json = { "prettier" },
     typst = { "prettypst" },
     yaml = { "prettier" },
     c = { "clangd-format" },
