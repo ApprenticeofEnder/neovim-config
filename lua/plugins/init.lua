@@ -36,6 +36,7 @@ return {
         "svelte",
         "typescript",
         "hcl",
+        "go",
       },
     },
   },
