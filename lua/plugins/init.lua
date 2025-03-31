@@ -2,6 +2,7 @@ return {
   {
     "stevearc/conform.nvim",
     event = "BufWritePre", -- uncomment for format on save
+    cmd = "ConformInfo",
     opts = require "configs.conform",
   },
 
@@ -20,25 +21,7 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "vim",
-        "lua",
-        "vimdoc",
-        "html",
-        "css",
-        "python",
-        "terraform",
-        "comment",
-        "markdown",
-        "markdown_inline",
-        "yaml",
-        "svelte",
-        "typescript",
-        "hcl",
-        "go",
-      },
-    },
+    opts = require "configs.nvim-treesitter",
   },
 
   {
@@ -55,5 +38,12 @@ return {
   {
     "NoahTheDuke/vim-just",
     ft = { "just" },
+  },
+
+  {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require "configs.nvim-ts-autotag"
+    end,
   },
 }
