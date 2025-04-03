@@ -19,7 +19,7 @@ local options = {
   formatters = {
     prettypst = {
       command = "prettypst",
-      args = { "--use-std-in", "--use-std-out" },
+      args = { "--use-std-in", "--use-std-out", "--style=otbs", "--use-configuration" },
     },
   },
   format_on_save = {
