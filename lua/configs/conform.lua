@@ -12,6 +12,7 @@ local options = {
     sql = { "sql_formatter" },
     rust = { "rustfmt" },
     typescript = { "prettier" },
+    typescriptreact = { "prettier" },
     tsx = { "prettier" },
     ["*"] = { "injected" },
   },

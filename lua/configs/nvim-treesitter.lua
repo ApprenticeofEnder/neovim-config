@@ -13,6 +13,7 @@ local options = {
     "yaml",
     "svelte",
     "typescript",
+    "tsx",
     "hcl",
     "go",
   },
