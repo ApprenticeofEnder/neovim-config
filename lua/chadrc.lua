@@ -13,6 +13,7 @@ M.base46 = {
     ["@comment"] = { italic = true },
     ["@comment.todo"] = { italic = false, fg = "orange", bg = "NONE" },
     Todo = { italic = false, fg = "orange", bg = "NONE" },
+    ["@spell"] = { italic = false, fg = "orange", bg = "NONE" },
   },
 }
 

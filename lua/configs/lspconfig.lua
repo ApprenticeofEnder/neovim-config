@@ -3,7 +3,6 @@ require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require "lspconfig"
 
--- EXAMPLE
 local servers = {
   "html",
   "cssls",
@@ -15,6 +14,8 @@ local servers = {
   "taplo",
   "ansiblels",
   "tinymist",
+  "terraformls",
+  "tflint",
   "yamlls",
   "svelte",
   "ts_ls",
@@ -33,7 +34,6 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig.terraformls.setup {}
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.tf", "*.tfvars" },
   callback = function()
@@ -42,12 +42,16 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     }
   end,
 })
-lspconfig.tflint.setup {}
 
 lspconfig.tinymist.setup {
   root_dir = function(filename, bufnr)
     return vim.fn.getcwd()
   end,
+  settings = {
+    formatterMode = "typstyle",
+    exportPdf = "onType",
+    semanticTokens = "disable",
+  },
 }
 
 lspconfig.pyright.setup {

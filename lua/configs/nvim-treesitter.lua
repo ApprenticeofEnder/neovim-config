@@ -12,6 +12,7 @@ local options = {
     "markdown_inline",
     "yaml",
     "svelte",
+    "typst",
     "typescript",
     "tsx",
     "hcl",
