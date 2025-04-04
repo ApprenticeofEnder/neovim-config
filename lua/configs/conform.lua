@@ -11,6 +11,8 @@ local options = {
     c = { "clangd-format" },
     sql = { "sql_formatter" },
     rust = { "rustfmt" },
+    typescript = { "prettier" },
+    tsx = { "prettier" },
     ["*"] = { "injected" },
   },
   linters_by_ft = {
