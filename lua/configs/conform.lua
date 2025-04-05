@@ -10,6 +10,7 @@ local options = {
     yaml = { "prettier" },
     c = { "clangd-format" },
     sql = { "sql_formatter" },
+    svelte = { "prettier" },
     rust = { "rustfmt" },
     typescript = { "prettier" },
     typescriptreact = { "prettier" },
