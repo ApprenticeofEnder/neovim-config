@@ -15,6 +15,7 @@ local servers = {
   "ansiblels",
   "tinymist",
   "terraformls",
+  "tailwindcss",
   "tflint",
   "yamlls",
   "svelte",
@@ -65,6 +66,14 @@ lspconfig.pyright.setup {
         -- Ignore all files for analysis to exclusively use Ruff for linting
         ignore = { "*" },
       },
+    },
+  },
+}
+
+lspconfig.cssls.setup {
+  settings = {
+    css = {
+      lint = { unknownAtRules = "ignore" },
     },
   },
 }
