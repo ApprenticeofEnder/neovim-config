@@ -57,8 +57,13 @@ return {
 
   {
     "chomosuke/typst-preview.nvim",
-    lazy = false, -- or ft = 'typst'
+    lazy = false,
+    ft = "typst",
     version = "1.*",
-    opts = {}, -- lazy.nvim will implicitly calls `setup {}`
+    opts = {
+      get_root = function(filename)
+        return vim.fn.getcwd()
+      end,
+    }, -- lazy.nvim will implicitly calls `setup {}`
   },
 }
