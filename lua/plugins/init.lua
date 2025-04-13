@@ -66,4 +66,6 @@ return {
       end,
     }, -- lazy.nvim will implicitly calls `setup {}`
   },
+
+  "JoosepAlviste/nvim-ts-context-commentstring",
 }

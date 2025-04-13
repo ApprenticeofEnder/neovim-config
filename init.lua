@@ -39,14 +39,31 @@ end)
 -- custom settings
 -- ===============
 
+-- Terraform setup
 vim.cmd [[silent! autocmd! filetypedetect BufRead,BufNewFile *.tf]]
 vim.cmd [[autocmd BufRead,BufNewFile *.hcl set filetype=hcl]]
 vim.cmd [[autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl]]
 vim.cmd [[autocmd BufRead,BufNewFile *.tf,*.tfvars,*.tofu set filetype=terraform]]
 vim.cmd [[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json]]
 
+-- Comment strings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "terraform",
+  callback = function()
+    vim.bo.commentstring = "# %s"
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "typst",
+  callback = function()
+    vim.bo.commentstring = "// %s"
+  end,
+})
+
 -- relative line numbers
 vim.wo.relativenumber = true
+
 -- opening a terminal
 require("nvchad.term").new { pos = "sp", size = 0.3 }
 vim.api.nvim_input "<ESC>" -- This gets back into normal mode
