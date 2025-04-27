@@ -39,6 +39,8 @@ end)
 -- custom settings
 -- ===============
 
+require("configs.hover").setup()
+
 -- Terraform setup
 vim.cmd [[silent! autocmd! filetypedetect BufRead,BufNewFile *.tf]]
 vim.cmd [[autocmd BufRead,BufNewFile *.hcl set filetype=hcl]]
