@@ -67,5 +67,16 @@ return {
     }, -- lazy.nvim will implicitly calls `setup {}`
   },
 
+  {
+    "brianhuster/live-preview.nvim",
+    dependencies = {
+      -- You can choose one of the following pickers
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("livepreview.config").set()
+    end,
+  },
+
   "JoosepAlviste/nvim-ts-context-commentstring",
 }
