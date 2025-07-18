@@ -41,6 +41,14 @@ end)
 
 require("configs.hover").setup()
 
+-- TreeSitter
+vim.filetype.add {
+  pattern = {
+    [".env.*"] = "ini",
+    [".env"] = "ini",
+  },
+}
+
 -- Terraform setup
 vim.cmd [[silent! autocmd! filetypedetect BufRead,BufNewFile *.tf]]
 vim.cmd [[autocmd BufRead,BufNewFile *.hcl set filetype=hcl]]

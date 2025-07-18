@@ -6,6 +6,7 @@ local options = {
     "html",
     "css",
     "python",
+    "ini",
     "terraform",
     "comment",
     "markdown",
