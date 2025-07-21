@@ -15,6 +15,7 @@ local options = {
     typescript = { "prettier" },
     typescriptreact = { "prettier" },
     tsx = { "prettier" },
+    jsonc = { "prettier" },
     ["*"] = { "injected" },
   },
   linters_by_ft = {
