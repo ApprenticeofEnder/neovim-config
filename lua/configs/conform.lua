@@ -1,22 +1,35 @@
+function Prettier_or_biome(bufnr)
+  local f = io.open "biome.jsonc"
+  if not f then -- If a Biome file isn't configured, we'll use Prettier.
+    return { "prettier" }
+  end
+  if require("conform").get_formatter_info("biome", bufnr).available then
+    return { "biome" }
+  else
+    return { "prettier" }
+  end
+end
+
 local options = {
   formatters_by_ft = {
-    css = { "prettier" },
-    html = { "prettier" },
+    css = Prettier_or_biome,
+    html = Prettier_or_biome,
     lua = { "stylua" },
-    markdown = { "prettier" },
+    markdown = Prettier_or_biome,
     python = { "ruff_fix", "ruff_format" },
-    json = { "prettier" },
+    json = Prettier_or_biome,
     typst = { "typstyle" },
     yaml = { "prettier" },
     c = { "clangd-format" },
     sql = { "sql_formatter" },
     svelte = { "prettier" },
     rust = { "rustfmt" },
-    typescript = { "prettier" },
-    typescriptreact = { "prettier" },
-    tsx = { "prettier" },
-    jsonc = { "prettier" },
-    ["*"] = { "injected" },
+    typescript = Prettier_or_biome,
+    typescriptreact = Prettier_or_biome,
+    javascript = Prettier_or_biome,
+    tsx = Prettier_or_biome,
+    jsonc = Prettier_or_biome,
+    ["*"] = Prettier_or_biome,
   },
   linters_by_ft = {
     make = { "checkmake" },
