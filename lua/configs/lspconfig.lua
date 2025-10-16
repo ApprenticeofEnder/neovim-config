@@ -1,8 +1,6 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
-local lspconfig = require "lspconfig"
-
 local servers = {
   "html",
   "cssls",
@@ -28,11 +26,11 @@ local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+  vim.lsp.config(lsp, {
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
-  }
+  })
 end
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -44,7 +42,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
 })
 
-lspconfig.tinymist.setup {
+vim.lsp.config("tinymist", {
   root_dir = function(filename, bufnr)
     return vim.fn.getcwd()
   end,
@@ -53,9 +51,9 @@ lspconfig.tinymist.setup {
     exportPdf = "onType",
     semanticTokens = "disable",
   },
-}
+})
 
-lspconfig.pyright.setup {
+vim.lsp.config("pyright", {
   settings = {
     pyright = {
       -- Using Ruff's import organizer
@@ -68,15 +66,15 @@ lspconfig.pyright.setup {
       },
     },
   },
-}
+})
 
-lspconfig.cssls.setup {
+vim.lsp.config("cssls", {
   settings = {
     css = {
       lint = { unknownAtRules = "ignore" },
     },
   },
-}
+})
 
 -- configuring single server, example: typescript
 -- lspconfig.ts_ls.setup {
