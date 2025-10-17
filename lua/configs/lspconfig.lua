@@ -31,6 +31,7 @@ for _, lsp in ipairs(servers) do
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
   })
+  vim.lsp.enable(lsp)
 end
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -52,6 +53,7 @@ vim.lsp.config("tinymist", {
     semanticTokens = "disable",
   },
 })
+vim.lsp.enable "tinymist"
 
 vim.lsp.config("pyright", {
   settings = {
@@ -67,6 +69,7 @@ vim.lsp.config("pyright", {
     },
   },
 })
+vim.lsp.enable "pyright"
 
 vim.lsp.config("cssls", {
   settings = {
@@ -75,6 +78,7 @@ vim.lsp.config("cssls", {
     },
   },
 })
+vim.lsp.enable "pyright"
 
 -- configuring single server, example: typescript
 -- lspconfig.ts_ls.setup {
