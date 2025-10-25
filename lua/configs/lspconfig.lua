@@ -1,6 +1,8 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
+require("java").setup()
+
 local servers = {
   "html",
   "cssls",
@@ -22,6 +24,7 @@ local servers = {
   "sqlls",
   "rust_analyzer",
   "jsonls",
+  "jdtls",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 
