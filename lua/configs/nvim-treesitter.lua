@@ -18,6 +18,7 @@ local options = {
     "tsx",
     "hcl",
     "go",
+    "java",
   },
 }
 
