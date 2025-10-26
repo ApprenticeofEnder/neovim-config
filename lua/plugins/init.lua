@@ -79,5 +79,4 @@ return {
   },
 
   "JoosepAlviste/nvim-ts-context-commentstring",
-  "nvim-java/nvim-java",
 }
