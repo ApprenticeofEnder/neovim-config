@@ -10,15 +10,6 @@ end
 
 keymap("i", "<C-b>", "<ESC>^i", opts_with_description "move beginning of line")
 keymap("i", "<C-e>", "<End>", opts_with_description "move end of line")
-keymap("i", "<C-h>", "<Left>", opts_with_description "move left")
-keymap("i", "<C-l>", "<Right>", opts_with_description "move right")
-keymap("i", "<C-j>", "<Down>", opts_with_description "move down")
-keymap("i", "<C-k>", "<Up>", opts_with_description "move up")
-
-keymap("n", "<C-h>", "<C-w>h", opts_with_description "switch window left")
-keymap("n", "<C-l>", "<C-w>l", opts_with_description "switch window right")
-keymap("n", "<C-j>", "<C-w>j", opts_with_description "switch window down")
-keymap("n", "<C-k>", "<C-w>k", opts_with_description "switch window up")
 
 keymap("n", "<Esc>", "<cmd>noh<CR>", opts_with_description "general clear highlights")
 
