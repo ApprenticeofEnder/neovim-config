@@ -1,4 +1,13 @@
-return {
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+  },
+
+  { import = "neovim-config.plugins" },
+}, {
   defaults = { lazy = true },
   install = { colorscheme = { "nvchad" } },
 
@@ -44,4 +53,4 @@ return {
       },
     },
   },
-}
+})

@@ -10,4 +10,7 @@ config.view = {
   preserve_window_proportions = true,
 }
 
-return config
+return {
+  "nvim-tree/nvim-tree.lua",
+  opts = config,
+}

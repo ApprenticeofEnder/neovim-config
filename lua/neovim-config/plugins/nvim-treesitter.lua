@@ -22,4 +22,14 @@ local options = {
   },
 }
 
-return options
+vim.filetype.add {
+  pattern = {
+    [".env.*"] = "ini",
+    [".env"] = "ini",
+  },
+}
+
+return {
+  "nvim-treesitter/nvim-treesitter",
+  opts = options,
+}
