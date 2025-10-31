@@ -19,6 +19,7 @@ local options = {
     "hcl",
     "go",
     "java",
+    "jsonc",
   },
 }
 
