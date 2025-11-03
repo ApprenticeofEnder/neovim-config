@@ -103,7 +103,7 @@ keymap({ "n", "v" }, "<leader>ds", map_vscode "workbench.actions.view.problems",
 keymap({ "n", "v" }, "<leader>cn", map_vscode "notifications.clearAll", { desc = "Clear notifications" })
 keymap({ "n", "v" }, "<leader>ff", map_vscode "workbench.action.quickOpen", { desc = "Quick open" })
 keymap({ "n", "v" }, "<leader>cp", map_vscode "workbench.action.showCommands", { desc = "Show commands" })
-keymap({ "n", "v" }, "<leader>pr", map_vscode "code-runner.run", { desc = "Run code" })
+keymap({ "n", "v" }, "<leader>pr", map_vscode "workbench.action.debug.start", { desc = "Run code" })
 keymap({ "n", "v" }, "<leader>fd", map_vscode "editor.action.formatDocument", { desc = "Format document" })
 
 -- harpoon keymaps
