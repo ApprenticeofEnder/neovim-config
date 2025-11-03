@@ -7,7 +7,7 @@ config.git = {
 
 config.view = {
   side = "right",
-  preserve_window_proportions = true,
+  width = 40,
 }
 
 return {
