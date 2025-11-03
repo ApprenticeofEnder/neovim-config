@@ -1,5 +1,5 @@
 local keymap = vim.keymap.set
-local opts = { noremap = true, silent = true }
+local opts = { noremap = true }
 
 local vscode = require "vscode"
 
@@ -10,8 +10,23 @@ local function opts_with_description(desc)
   }
 end
 
+local function map_vscode(action)
+  return function()
+    vscode.action(action)
+  end
+end
+
 keymap("i", "<C-b>", "<ESC>^i", opts_with_description "move beginning of line")
 keymap("i", "<C-e>", "<End>", opts_with_description "move end of line")
+keymap("i", "<C-h>", "<Left>", opts_with_description "move left")
+keymap("i", "<C-l>", "<Right>", opts_with_description "move right")
+keymap("i", "<C-j>", "<Down>", opts_with_description "move down")
+keymap("i", "<C-k>", "<Up>", opts_with_description "move up")
+
+keymap("n", "<C-h>", map_vscode "workbench.action.navigateLeft", opts_with_description "switch window left")
+keymap("n", "<C-l>", map_vscode "workbench.action.navigateRight", opts_with_description "switch window right")
+keymap("n", "<C-j>", map_vscode "workbench.action.navigateDown", opts_with_description "switch window down")
+keymap("n", "<C-k>", map_vscode "workbench.action.navigateUp", opts_with_description "switch window up")
 
 keymap("n", "<Esc>", "<cmd>noh<CR>", opts_with_description "general clear highlights")
 
@@ -57,133 +72,56 @@ keymap({ "n" }, "<leader>e", function()
 end, { desc = "Toggle and focus file explorer" })
 
 -- Go to implementation
-keymap("n", "gi", function()
-  vscode.action "editor.action.goToImplementation"
-end, { desc = "Go to implementation" })
+keymap("n", "gi", map_vscode "editor.action.goToImplementation", { desc = "Go to implementation" })
 
 -- Go to references
-keymap("n", "gr", function()
-  vscode.action "editor.action.goToReferences"
-end, { desc = "Go to references" })
+keymap("n", "gr", map_vscode "editor.action.goToReferences", { desc = "Go to references" })
 
 -- Go to definition
-keymap("n", "gd", function()
-  vscode.action "editor.action.revealDefinition"
-end, { desc = "Go to definition" })
+keymap("n", "gd", map_vscode "editor.action.revealDefinition", { desc = "Go to definition" })
 
 -- to stage the selection context
-keymap("v", "gs", function()
-  vscode.action "git.stageSelectedRanges"
-end, { desc = "Stage selected lines" })
+keymap("v", "gs", map_vscode "git.stageSelectedRanges", { desc = "Stage selected lines" })
 
 -- Toggle the terminal
-keymap({ "n", "v" }, "<leader>t", function()
-  vscode.action "workbench.action.terminal.toggleTerminal"
-end, { desc = "Toggle terminal" })
+keymap({ "n", "v" }, "<leader>t", map_vscode "workbench.action.terminal.toggleTerminal", { desc = "Toggle terminal" })
 
-keymap("n", "<leader>rt", function()
-  vscode.action "workbench.action.tasks.runTask"
-end, { desc = "Run task" })
+-- Run a task
+keymap("n", "<leader>rt", map_vscode "workbench.action.tasks.runTask", { desc = "Run task" })
 
-keymap({ "n", "v" }, "<leader>b", function()
-  vscode.action "editor.debug.action.toggleBreakpoint"
-end, { desc = "Toggle breakpoint" })
+-- Toggle a breakpoint
+keymap({ "n", "v" }, "<leader>b", map_vscode "editor.debug.action.toggleBreakpoint", { desc = "Toggle breakpoint" })
 
-keymap({ "n", "v" }, "<leader>d", function()
-  vscode.action "editor.action.showHover"
-end, { desc = "Show hover" })
-
-keymap({ "n", "v" }, "<leader>a", function()
-  vscode.action "editor.action.quickFix"
-end, { desc = "Quick fix" })
-
-keymap({ "n", "v" }, "<leader>sp", function()
-  vscode.action "workbench.actions.view.problems"
-end, { desc = "Show problems" })
-
-keymap({ "n", "v" }, "<leader>cn", function()
-  vscode.action "notifications.clearAll"
-end, { desc = "Clear notifications" })
-
-keymap({ "n", "v" }, "<leader>ff", function()
-  vscode.action "workbench.action.quickOpen"
-end, { desc = "Quick open" })
-
-keymap({ "n", "v" }, "<leader>cp", function()
-  vscode.action "workbench.action.showCommands"
-end, { desc = "Show commands" })
-
-keymap({ "n", "v" }, "<leader>pr", function()
-  vscode.action "code-runner.run"
-end, { desc = "Run code" })
-
-keymap({ "n", "v" }, "<leader>fd", function()
-  vscode.action "editor.action.formatDocument"
-end, { desc = "Format document" })
+keymap({ "n", "v" }, "<leader>d", map_vscode "editor.action.showHover", { desc = "Show hover" })
+keymap({ "n", "v" }, "<leader>a", map_vscode "editor.action.quickFix", { desc = "Quick fix" })
+keymap({ "n", "v" }, "<leader>ds", map_vscode "workbench.actions.view.problems", { desc = "Show problems" })
+keymap({ "n", "v" }, "<leader>cn", map_vscode "notifications.clearAll", { desc = "Clear notifications" })
+keymap({ "n", "v" }, "<leader>ff", map_vscode "workbench.action.quickOpen", { desc = "Quick open" })
+keymap({ "n", "v" }, "<leader>cp", map_vscode "workbench.action.showCommands", { desc = "Show commands" })
+keymap({ "n", "v" }, "<leader>pr", map_vscode "code-runner.run", { desc = "Run code" })
+keymap({ "n", "v" }, "<leader>fd", map_vscode "editor.action.formatDocument", { desc = "Format document" })
 
 -- harpoon keymaps
-
-keymap({ "n", "v" }, "<leader>ha", function()
-  vscode.action "vscode-harpoon.addEditor"
-end, { desc = "Harpoon: Add editor" })
-
-keymap({ "n", "v" }, "<leader>ho", function()
-  vscode.action "vscode-harpoon.editorQuickPick"
-end, { desc = "Harpoon: Quick pick" })
-
-keymap({ "n", "v" }, "<leader>he", function()
-  vscode.action "vscode-harpoon.editEditors"
-end, { desc = "Harpoon: Edit editors" })
-
-keymap({ "n", "v" }, "<leader>h1", function()
-  vscode.action "vscode-harpoon.gotoEditor1"
-end, { desc = "Harpoon: Go to editor 1" })
-
-keymap({ "n", "v" }, "<leader>h2", function()
-  vscode.action "vscode-harpoon.gotoEditor2"
-end, { desc = "Harpoon: Go to editor 2" })
-
-keymap({ "n", "v" }, "<leader>h3", function()
-  vscode.action "vscode-harpoon.gotoEditor3"
-end, { desc = "Harpoon: Go to editor 3" })
-
-keymap({ "n", "v" }, "<leader>h4", function()
-  vscode.action "vscode-harpoon.gotoEditor4"
-end, { desc = "Harpoon: Go to editor 4" })
-
-keymap({ "n", "v" }, "<leader>h5", function()
-  vscode.action "vscode-harpoon.gotoEditor5"
-end, { desc = "Harpoon: Go to editor 5" })
-
-keymap({ "n", "v" }, "<leader>h6", function()
-  vscode.action "vscode-harpoon.gotoEditor6"
-end, { desc = "Harpoon: Go to editor 6" })
-
-keymap({ "n", "v" }, "<leader>h7", function()
-  vscode.action "vscode-harpoon.gotoEditor7"
-end, { desc = "Harpoon: Go to editor 7" })
-
-keymap({ "n", "v" }, "<leader>h8", function()
-  vscode.action "vscode-harpoon.gotoEditor8"
-end, { desc = "Harpoon: Go to editor 8" })
-
-keymap({ "n", "v" }, "<leader>h9", function()
-  vscode.action "vscode-harpoon.gotoEditor9"
-end, { desc = "Harpoon: Go to editor 9" })
+keymap({ "n", "v" }, "<leader>ha", map_vscode "vscode-harpoon.addEditor", { desc = "Harpoon: Add editor" })
+keymap({ "n", "v" }, "<leader>ho", map_vscode "vscode-harpoon.editorQuickPick", { desc = "Harpoon: Quick pick" })
+keymap({ "n", "v" }, "<leader>he", map_vscode "vscode-harpoon.editEditors", { desc = "Harpoon: Edit editors" })
+keymap({ "n", "v" }, "<leader>h1", map_vscode "vscode-harpoon.gotoEditor1", { desc = "Harpoon: Go to editor 1" })
+keymap({ "n", "v" }, "<leader>h2", map_vscode "vscode-harpoon.gotoEditor2", { desc = "Harpoon: Go to editor 2" })
+keymap({ "n", "v" }, "<leader>h3", map_vscode "vscode-harpoon.gotoEditor3", { desc = "Harpoon: Go to editor 3" })
+keymap({ "n", "v" }, "<leader>h4", map_vscode "vscode-harpoon.gotoEditor4", { desc = "Harpoon: Go to editor 4" })
+keymap({ "n", "v" }, "<leader>h5", map_vscode "vscode-harpoon.gotoEditor5", { desc = "Harpoon: Go to editor 5" })
+keymap({ "n", "v" }, "<leader>h6", map_vscode "vscode-harpoon.gotoEditor6", { desc = "Harpoon: Go to editor 6" })
+keymap({ "n", "v" }, "<leader>h7", map_vscode "vscode-harpoon.gotoEditor7", { desc = "Harpoon: Go to editor 7" })
+keymap({ "n", "v" }, "<leader>h8", map_vscode "vscode-harpoon.gotoEditor8", { desc = "Harpoon: Go to editor 8" })
+keymap({ "n", "v" }, "<leader>h9", map_vscode "vscode-harpoon.gotoEditor9", { desc = "Harpoon: Go to editor 9" })
 
 -- project manager keymaps
-keymap({ "n", "v" }, "<leader>pa", function()
-  vscode.action "projectManager.saveProject"
-end, { desc = "Project: Save project" })
-
-keymap({ "n", "v" }, "<leader>po", function()
-  vscode.action "projectManager.listProjects"
-end, { desc = "Project: List projects" })
-
-keymap({ "n", "v" }, "<leader>pn", function()
-  vscode.action "projectManager.listProjectsNewWindow"
-end, { desc = "Project: List projects (new window)" })
-
-keymap({ "n", "v" }, "<leader>pe", function()
-  vscode.action "projectManager.editProjects"
-end, { desc = "Project: Edit projects" })
+keymap({ "n", "v" }, "<leader>pa", map_vscode "projectManager.saveProject", { desc = "Project: Save project" })
+keymap({ "n", "v" }, "<leader>po", map_vscode "projectManager.listProjects", { desc = "Project: List projects" })
+keymap(
+  { "n", "v" },
+  "<leader>pn",
+  map_vscode "projectManager.listProjectsNewWindow",
+  { desc = "Project: List projects (new window)" }
+)
+keymap({ "n", "v" }, "<leader>pe", map_vscode "projectManager.editProjects", { desc = "Project: Edit projects" })
