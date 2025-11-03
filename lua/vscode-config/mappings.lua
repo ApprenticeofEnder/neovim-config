@@ -23,10 +23,15 @@ keymap("i", "<C-l>", "<Right>", opts_with_description "move right")
 keymap("i", "<C-j>", "<Down>", opts_with_description "move down")
 keymap("i", "<C-k>", "<Up>", opts_with_description "move up")
 
+-- switch windows
 keymap("n", "<C-h>", map_vscode "workbench.action.navigateLeft", opts_with_description "switch window left")
 keymap("n", "<C-l>", map_vscode "workbench.action.navigateRight", opts_with_description "switch window right")
 keymap("n", "<C-j>", map_vscode "workbench.action.navigateDown", opts_with_description "switch window down")
 keymap("n", "<C-k>", map_vscode "workbench.action.navigateUp", opts_with_description "switch window up")
+
+-- switch editors
+keymap("n", "<tab>", map_vscode "workbench.action.nextEditor", opts_with_description "next editor")
+keymap("n", "<S-tab>", map_vscode "workbench.action.previousEditor", opts_with_description "previous editor")
 
 keymap("n", "<Esc>", "<cmd>noh<CR>", opts_with_description "general clear highlights")
 
