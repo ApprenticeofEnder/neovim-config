@@ -20,6 +20,7 @@ local servers = {
   "rust_analyzer",
   "jsonls",
   "jdtls",
+  "nil",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 
