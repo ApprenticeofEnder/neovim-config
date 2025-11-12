@@ -34,6 +34,7 @@ return {
       tsx = Prettier_or_biome,
       jsonc = Prettier_or_biome,
       xml = { "xmlformatter" },
+      nix = { "alejandra" },
     },
     linters_by_ft = {
       make = { "checkmake" },
