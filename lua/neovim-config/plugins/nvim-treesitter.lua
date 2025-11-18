@@ -20,6 +20,7 @@ local options = {
     "go",
     "java",
     "jsonc",
+    "c_sharp",
   },
 }
 

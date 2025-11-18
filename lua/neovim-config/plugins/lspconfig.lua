@@ -21,6 +21,7 @@ local servers = {
   "jsonls",
   "jdtls",
   "nil_ls",
+  "omnisharp",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 
