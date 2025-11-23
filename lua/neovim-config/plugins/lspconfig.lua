@@ -14,7 +14,6 @@ local servers = {
   "tflint",
   "yamlls",
   "svelte",
-  "ts_ls",
   "clangd",
   "sqlls",
   "rust_analyzer",
@@ -47,6 +46,9 @@ local vtsls_config = {
   filetypes = tsserver_filetypes,
 }
 local ts_ls_config = {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
   init_options = {
     plugins = {
       vue_plugin,
@@ -54,7 +56,6 @@ local ts_ls_config = {
   },
   filetypes = tsserver_filetypes,
 }
-local vue_ls_config = {}
 
 function ConfigureLsps()
   require("nvchad.configs.lspconfig").defaults()
@@ -124,7 +125,6 @@ function ConfigureLsps()
   vim.lsp.enable "cssls"
 
   vim.lsp.config("vtsls", vtsls_config)
-  vim.lsp.config("vue_ls", vue_ls_config)
   vim.lsp.config("ts_ls", ts_ls_config)
   vim.lsp.enable { "ts_ls", "vue_ls" }
 end
