@@ -127,19 +127,6 @@ function ConfigureLsps()
   vim.lsp.config("vue_ls", vue_ls_config)
   vim.lsp.config("ts_ls", ts_ls_config)
   vim.lsp.enable { "ts_ls", "vue_ls" }
-
-  -- vim.lsp.config("ts_ls", {
-  --   init_options = {
-  --     plugins = {
-  --       {
-  --         name = "@vue/typescript-plugin",
-  --         location = vue_plugin_path,
-  --         languages = { "vue" },
-  --       },
-  --     },
-  --   },
-  --   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-  -- })
 end
 
 return {
