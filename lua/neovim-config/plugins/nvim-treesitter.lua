@@ -21,6 +21,7 @@ local options = {
     "java",
     "jsonc",
     "c_sharp",
+    "vue",
   },
 }
 

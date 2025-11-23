@@ -33,6 +33,7 @@ return {
       javascript = Prettier_or_biome,
       tsx = Prettier_or_biome,
       jsonc = Prettier_or_biome,
+      vue = Prettier_or_biome,
       xml = { "xmlformatter" },
       nix = { "alejandra" },
     },
