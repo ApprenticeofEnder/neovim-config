@@ -19,7 +19,7 @@ return {
       css = Prettier_or_biome,
       html = Prettier_or_biome,
       lua = { "stylua" },
-      markdown = Prettier_or_biome,
+      markdown = { "prettier" },
       python = { "ruff_fix", "ruff_format" },
       json = Prettier_or_biome,
       typst = { "typstyle" },
