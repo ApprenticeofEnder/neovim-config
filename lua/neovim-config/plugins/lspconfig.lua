@@ -18,7 +18,6 @@ local servers = {
   "sqlls",
   "rust_analyzer",
   "jsonls",
-  "jdtls",
   "nil_ls",
   "vue_ls",
 }
