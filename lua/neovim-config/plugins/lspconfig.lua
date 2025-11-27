@@ -20,6 +20,7 @@ local servers = {
   "jsonls",
   "nil_ls",
   "vue_ls",
+  "bashls",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 

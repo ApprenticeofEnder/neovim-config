@@ -39,8 +39,13 @@ return {
     },
     linters_by_ft = {
       make = { "checkmake" },
+      bash = { "shellcheck" },
     },
-    formatters = {},
+    formatters = {
+      shfmt = {
+        extra_args = { "-i", "2", "-ci", "-bn" },
+      },
+    },
     format_on_save = {
       -- These options will be passed to conform.format()
       timeout_ms = 10000,
