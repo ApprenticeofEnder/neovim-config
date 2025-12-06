@@ -127,6 +127,12 @@ function ConfigureLsps()
   vim.lsp.config("vtsls", vtsls_config)
   vim.lsp.config("ts_ls", ts_ls_config)
   vim.lsp.enable { "ts_ls", "vue_ls" }
+
+  vim.lsp.config("jinja_lsp", {
+    filetypes = { "jinja", "rust", "python" },
+    template_extensions = { "j2" },
+  })
+  vim.lsp.enable "jinja_lsp"
 end
 
 return {
