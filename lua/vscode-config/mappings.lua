@@ -106,6 +106,7 @@ keymap({ "n", "v" }, "<leader><leader>", map_vscode "workbench.view.search.focus
 keymap({ "n", "v" }, "<leader>cp", map_vscode "workbench.action.showCommands", { desc = "Show commands" })
 keymap({ "n", "v" }, "<leader>pr", map_vscode "workbench.action.debug.start", { desc = "Run code" })
 keymap({ "n", "v" }, "<leader>fd", map_vscode "editor.action.formatDocument", { desc = "Format document" })
+keymap({ "n", "v" }, "<leader>lg", map_vscode "lazygit.openLazygit", { desc = "Run Lazygit" })
 
 -- harpoon keymaps
 keymap({ "n", "v" }, "<leader>ha", map_vscode "vscode-harpoon.addEditor", { desc = "Harpoon: Add editor" })
