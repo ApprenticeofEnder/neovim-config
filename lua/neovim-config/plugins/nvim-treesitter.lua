@@ -32,6 +32,14 @@ vim.filetype.add {
   },
 }
 
+vim.filetype.add {
+  extension = {
+    jinja = "jinja",
+    jinja2 = "jinja",
+    j2 = "jinja",
+  },
+}
+
 return {
   "nvim-treesitter/nvim-treesitter",
   opts = options,
