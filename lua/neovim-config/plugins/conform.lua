@@ -40,6 +40,7 @@ return {
     linters_by_ft = {
       make = { "checkmake" },
       bash = { "shellcheck" },
+      zsh = { "shellcheck" },
     },
     formatters = {
       shfmt = {

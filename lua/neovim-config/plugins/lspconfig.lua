@@ -20,7 +20,6 @@ local servers = {
   "jsonls",
   "nil_ls",
   "vue_ls",
-  "bashls",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 
@@ -133,6 +132,11 @@ function ConfigureLsps()
     template_extensions = { "j2" },
   })
   vim.lsp.enable "jinja_lsp"
+
+  vim.lsp.config("bashls", {
+    filetypes = { "bash", "sh", "zsh" },
+  })
+  vim.lsp.enable "bashls"
 end
 
 return {
