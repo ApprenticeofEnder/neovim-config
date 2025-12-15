@@ -35,7 +35,7 @@ return {
       jsonc = Prettier_or_biome,
       vue = { "prettier" },
       xml = { "xmlformatter" },
-      nix = { "nixpkgs_fmt" },
+      nix = { "alejandra" },
     },
     linters_by_ft = {
       make = { "checkmake" },
