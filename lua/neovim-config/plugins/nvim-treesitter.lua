@@ -40,6 +40,16 @@ vim.filetype.add {
   },
 }
 
+vim.filetype.add {
+  extension = {
+    fitc = "jsonc",
+    fitcfg = "jsonc",
+    fitmf = "jsonc",
+    fitdef = "jsonc",
+    fitres = "jsonc",
+  },
+}
+
 return {
   "nvim-treesitter/nvim-treesitter",
   opts = options,
