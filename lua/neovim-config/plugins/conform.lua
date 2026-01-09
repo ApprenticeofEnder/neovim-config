@@ -12,6 +12,7 @@ end
 
 return {
   "stevearc/conform.nvim",
+  log_level = vim.log.levels.DEBUG,
   event = "BufWritePre", -- uncomment for format on save
   cmd = "ConformInfo",
   opts = {
@@ -36,6 +37,7 @@ return {
       vue = { "prettier" },
       xml = { "xmlformatter" },
       nix = { "alejandra" },
+      jq = { "jqfmt" },
     },
     linters_by_ft = {
       make = { "checkmake" },
@@ -45,6 +47,10 @@ return {
     formatters = {
       shfmt = {
         extra_args = { "-i", "2", "-ci", "-bn" },
+      },
+      jqfmt = {
+        command = "jqfmt",
+        args = { "-ob", "-ar", "-op", "pipe,comma,alt", "-f", "$FILENAME" },
       },
     },
     format_on_save = {
