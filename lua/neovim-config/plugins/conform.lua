@@ -1,6 +1,10 @@
 function Prettier_or_biome(bufnr)
   local f = vim.fs.find({ "biome.jsonc" }, { upward = true })
-  if not f then -- If a Biome file isn't configured, we'll use Prettier.
+  local entries = 0
+  for index, value in ipairs(f) do
+    entries = entries + 1
+  end
+  if entries == 0 then -- If a Biome file isn't configured, we'll use Prettier.
     return { "prettier" }
   end
   if require("conform").get_formatter_info("biome", bufnr).available then
