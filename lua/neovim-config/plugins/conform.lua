@@ -41,7 +41,7 @@ return {
       vue = { "prettier" },
       xml = { "xmlformatter" },
       nix = { "alejandra" },
-      jq = { "jqfmt" },
+      -- jq = { "jqfmt" },
     },
     linters_by_ft = {
       make = { "checkmake" },
