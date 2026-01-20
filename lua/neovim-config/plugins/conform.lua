@@ -47,6 +47,7 @@ return {
       make = { "checkmake" },
       bash = { "shellcheck" },
       zsh = { "shellcheck" },
+      terraform = { "tflint" },
     },
     formatters = {
       shfmt = {
