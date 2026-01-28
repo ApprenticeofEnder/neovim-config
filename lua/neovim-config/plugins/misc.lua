@@ -1,7 +1,7 @@
 return {
   {
     "likec4/likec4.nvim",
-    build = "pnpm install -g @likec4/languageserver",
+    build = "pnpm install -g @likec4/language-server",
   },
   {
     "NoahTheDuke/vim-just",
