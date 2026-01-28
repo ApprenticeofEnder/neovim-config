@@ -1,5 +1,8 @@
 return {
   {
+    "likec4/likec4.nvim",
+  },
+  {
     "NoahTheDuke/vim-just",
     ft = { "just" },
   },
