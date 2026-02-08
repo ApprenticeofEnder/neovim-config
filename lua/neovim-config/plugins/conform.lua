@@ -1,5 +1,5 @@
 function Prettier_or_biome(bufnr)
-  local f = vim.fs.find({ "biome.jsonc" }, { upward = true })
+  local f = vim.fs.find({ "biome.jsonc", "biome.json" }, { upward = true })
   local entries = 0
   for index, value in ipairs(f) do
     entries = entries + 1
