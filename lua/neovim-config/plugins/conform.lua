@@ -41,6 +41,7 @@ return {
       vue = { "prettier" },
       xml = { "xmlformatter" },
       nix = { "alejandra" },
+      hcl = { "hclfmt" },
       -- jq = { "jqfmt" },
     },
     linters_by_ft = {
@@ -50,6 +51,9 @@ return {
       terraform = { "tflint" },
     },
     formatters = {
+      hclfmt = {
+        command = "hclfmt",
+      },
       shfmt = {
         extra_args = { "-i", "2", "-ci", "-bn" },
       },
