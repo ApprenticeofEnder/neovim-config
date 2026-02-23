@@ -3,7 +3,7 @@ local is_nixos = os.getenv("NIX_NEOVIM") == "1"
 return {
   {
     "mason-org/mason.nvim",
-    enable = not is_nixos
+    enabled = not is_nixos,
   },
   {
     "likec4/likec4.nvim",
