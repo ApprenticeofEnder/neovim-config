@@ -1,4 +1,4 @@
-local is_nixos = os.getenv("NIX_NEOVIM") == 1
+local is_nixos = os.getenv("NIX_NEOVIM") == "1"
 
 return {
   {
