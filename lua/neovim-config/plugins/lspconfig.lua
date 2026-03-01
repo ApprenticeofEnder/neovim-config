@@ -4,6 +4,7 @@ local servers = {
   "gopls",
   "ruff",
   "pyright",
+  "basedpyright",
   "marksman",
   "dockerls",
   "taplo",
@@ -26,7 +27,7 @@ local servers = {
 local nvlsp = require "nvchad.configs.lspconfig"
 
 local vue_language_server_path = vim.fn.stdpath "data"
-  .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+    .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
 local tsserver_filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
 local vue_plugin = {
   name = "@vue/typescript-plugin",
