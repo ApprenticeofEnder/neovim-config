@@ -27,7 +27,7 @@ local servers = {
 local nvlsp = require "nvchad.configs.lspconfig"
 
 local vue_language_server_path = vim.fn.stdpath "data"
-    .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+  .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
 local tsserver_filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
 local vue_plugin = {
   name = "@vue/typescript-plugin",
@@ -78,7 +78,7 @@ function ConfigureLsps()
         schemas = {
           kubernetes = "k8s-*.yaml",
           ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
-          ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+          ["http://json.schemastore.org/github-action"] = ".github/**/actions?.{yml,yaml}",
           ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/**/*.{yml,yaml}",
           ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
           ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
