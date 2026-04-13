@@ -23,6 +23,7 @@ local servers = {
   "vue_ls",
   "jqls",
   "fish_lsp",
+  "gh_actions_ls",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 

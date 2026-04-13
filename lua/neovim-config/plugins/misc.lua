@@ -4,6 +4,9 @@ return {
   {
     "mason-org/mason.nvim",
     enabled = not is_nixos,
+    opts = function()
+      return require "nvchad.configs.mason"
+    end,
   },
   {
     "likec4/likec4.nvim",
