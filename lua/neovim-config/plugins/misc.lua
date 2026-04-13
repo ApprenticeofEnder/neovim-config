@@ -1,4 +1,4 @@
-local is_nixos = os.getenv("NIX_NEOVIM") == "1"
+local is_nixos = os.getenv "NIX_NEOVIM" == "1"
 
 return {
   {
@@ -13,7 +13,14 @@ return {
     "NoahTheDuke/vim-just",
     ft = { "just" },
   },
-
+  {
+    "skanehira/github-actions.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-telescope/telescope.nvim", -- Optional: for enhanced workflow selection
+    },
+    opts = {},
+  },
   {
     "windwp/nvim-ts-autotag",
     lazy = false,
