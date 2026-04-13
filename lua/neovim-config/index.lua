@@ -35,3 +35,5 @@ vim.schedule(function()
   require "neovim-config.mappings"
 end)
 require("neovim-config.hover").setup()
+
+require "github-actions"
