@@ -52,5 +52,6 @@ vim.filetype.add {
 
 return {
   "nvim-treesitter/nvim-treesitter",
+  branch = "main",
   opts = options,
 }
